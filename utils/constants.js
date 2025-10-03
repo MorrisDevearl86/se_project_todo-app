@@ -5,18 +5,21 @@ const initialTodos = [
     completed: true,
     date: new Date(),
   },
+
   {
     id: "a7bfd5ef-37cc-4fa6-89f2-cac098a8aeba",
     name: "Read project instructions",
     completed: false,
     date: new Date(),
   },
+
   {
     id: "aa486839-63ab-437f-b8a2-29ab217dff4f",
     name: "Complete project",
     completed: false,
     date: new Date(),
   },
+  
 ];
 
 const validationConfig = {
