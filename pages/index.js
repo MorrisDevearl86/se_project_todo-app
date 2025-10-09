@@ -14,6 +14,8 @@ const openModal = (modal) => {
   modal.classList.add("popup_visible");
 };
 
+
+
 const closeModal = (modal) => {
   modal.classList.remove("popup_visible");
 };
