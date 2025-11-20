@@ -1,3 +1,6 @@
+import { v4 as uuidv4 } from "https://jspm.dev/uuid";
+console.log(uuidv4());
+
 import { initialTodos, validationConfig } from "../utils/constants.js";
 import Todo from "../components/Todo.js";
 console.log(initialTodos);
@@ -14,8 +17,6 @@ const openModal = (modal) => {
   modal.classList.add("popup_visible");
 };
 
-
-
 const closeModal = (modal) => {
   modal.classList.remove("popup_visible");
 };
@@ -23,28 +24,25 @@ const closeModal = (modal) => {
 const generateTodo = (data) => {
   const todo = new Todo(data, "#todo-template");
   const todoElement = todo.getview();
-  return todoElement;}
+  return todoElement;
+};
 
- 
-  // todoNameEl.textContent = data.name;
-  // todoCheckboxEl.checked = data.completed;
+// todoNameEl.textContent = data.name;
+// todoCheckboxEl.checked = data.completed;
 
-  // // Apply id and for attributes.
-  // // The id will initially be undefined for new todos.
+// // Apply id and for attributes.
+// // The id will initially be undefined for new todos.
 
-  
-  // const dueDate = new Date(data.date);
-  // if (!isNaN(dueDate)) {
-  //   todoDate.textContent = `Due: ${dueDate.toLocaleString("en-US", {
-  //     year: "numeric",
-  //     month: "short",
-  //     day: "numeric",
-  //   })}`;
-  // }
+// const dueDate = new Date(data.date);
+// if (!isNaN(dueDate)) {
+//   todoDate.textContent = `Due: ${dueDate.toLocaleString("en-US", {
+//     year: "numeric",
+//     month: "short",
+//     day: "numeric",
+//   })}`;
+// }
 
-  // todoDeleteBtn.addEventListener("click", () => {
-  //   todoElement.remove();
-  // });
+// +
 
 // };
 

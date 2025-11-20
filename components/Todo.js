@@ -23,25 +23,24 @@ class Todo {
   }
 
   getView() { 
-    this._todoElement = this._templateElement.content
-    .querySelector(".todo")
-    .cloneNode(true);
-    console.loge(getView);
+    return document.querySelector(this._templateElement).content.
+    querySelector(".todo").cloneNode(true);}
+
     
-  const todoNameEl = this._todoElement.querySelector(".todo__name");
+//   const todoNameEl = this._todoElement.querySelector(".todo__name");
   
-  const todoDate = this._todoElement.querySelector(".todo__date");
-  const todoDeleteBtn = this._todoElement.querySelector(".todo__delete-btn");
+//   const todoDate = this._todoElement.querySelector(".todo__date");
+//   const todoDeleteBtn = this._todoElement.querySelector(".todo__delete-btn");
    
-  todoNameEl.textContent = this._data.name;
+//   todoNameEl.textContent = this._data.name;
 
-   todoCheckboxEl.checked = this._data.completed;
+//    todoCheckboxEl.checked = this._data.completed;
    
-   this._generateCheckboxEl();
-  this._setEventListeners();   
+//    this._generateCheckboxEl();
+//   this._setEventListeners();   
 
-  return this._todoElement;
+//   return this._todoElement;
+//   }
   }
-}
 
 export default Todo;
