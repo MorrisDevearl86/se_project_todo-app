@@ -3,16 +3,20 @@ class Todo {
     this._data = data;
     this._templateElement = document.querySelector(selector);
   }
-  
+
   _setEventListeners() {
+    const todoDeleteBtn = this._todoElement.querySelector(".todo__delete-btn");
+
     this._todoCheckboxEl.addEventListener("change", () => {
       this._data.completed = !this._data.completed;
     });
 
-    this._todoDeleteBtn.addEventListener("click", () => {
+    todoDeleteBtn.addEventListener("click", () => {
       this._todoElement.remove();
     });
   }
+
+  // Generate checkbox with proper ID and checked state
 
   _generateCheckboxEl() {
     this._todoCheckboxEl = this._todoElement.querySelector(".todo__completed");
@@ -22,25 +26,32 @@ class Todo {
     this._todoLabel.setAttribute("for", `todo-${this._data.id}`);
   }
 
-  getView() { 
-    return document.querySelector(this._templateElement).content.
-    querySelector(".todo").cloneNode(true);}
+  getView() {
+    this._todoElement = this._templateElement.content
+      .querySelector(".todo")
+      .cloneNode(true);
 
-    
-//   const todoNameEl = this._todoElement.querySelector(".todo__name");
-  
-//   const todoDate = this._todoElement.querySelector(".todo__date");
-//   const todoDeleteBtn = this._todoElement.querySelector(".todo__delete-btn");
-   
-//   todoNameEl.textContent = this._data.name;
+    const todoNameEl = this._todoElement.querySelector(".todo__name");
+    const todoDate = this._todoElement.querySelector(".todo__date");
 
-//    todoCheckboxEl.checked = this._data.completed;
-   
-//    this._generateCheckboxEl();
-//   this._setEventListeners();   
+    todoNameEl.textContent = this._data.name;
+    const dueDate = new Date(this._data.date);
 
-//   return this._todoElement;
-//   }
+    this._generateCheckboxEl();
+    this._setEventListeners();
+
+    // Format and display date
+
+    if (!isNaN(dueDate)) {
+      todoDate.textContent = `Due: ${dueDate.toLocaleString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      })}`;
+    }
+
+    return this._todoElement;
   }
+}
 
 export default Todo;
