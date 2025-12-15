@@ -1,17 +1,24 @@
 # Simple Todo App
 
-Give a brief description of the project here. Feel free to give it a different name.
+A Website application that allows users to create, manage, and track daily tasks through a clean and user-friendly interface "The Todo List".
 
 ## Functionality
 
-Give a more detailed explanation of the project and its functionality.
+The Simple Todo App enables users to add, view, update, and remove tasks in real time. Tasks can be marked as complete or incomplete, helping users visually track their progress throughout the day. The application focuses on simplicity and ease of use, making task management fast and intuitive.
+
+The app by entering task descriptions into an input field and submitting them to a task list. Each task is displayed with action controls that allow users to mark tasks as completed or delete them entirely. Completed tasks are visually distinguished to improve clarity and usability.
+
+The app dynamically updates the task list without requiring page reloads, ensuring a smooth user experience. This project demonstrates fundamental front-end development concepts, including state management, event handling, and DOM manipulation.
 
 ## Technology
 
-Give a description of the technologies and techniques used. Pictures, GIFs, or screenshots that detail the project features are recommended.
+This project is built using the following technologies:
 
-## Deployment
+- **HTML5** – Provides the semantic structure of the application.
+- **CSS3** – Handles layout, styling, and visual feedback for completed tasks.
+- **JavaScript** – Implements application logic, event handling, and dynamic DOM updates.
+
+## Project Site
 
 This project is deployed on GitHub Pages:
-
-- ADD LINK HERE
+[Link Here](https://MorrisDevearl86.github.io/se_project_todo-app)
