@@ -10,6 +10,9 @@ The app by entering task descriptions into an input field and submitting them to
 
 The app dynamically updates the task list without requiring page reloads, ensuring a smooth user experience. This project demonstrates fundamental front-end development concepts, including state management, event handling, and DOM manipulation.
 
+## Screenshot
+![](https://github.com/MorrisDevearl86/se_project_todo-app/blob/4f9df4430eb98d54370b847e0c52c8506e7af44b/To%20do%20app%20Picture-min.png)
+
 ## Technology
 
 This project is built using the following technologies:
