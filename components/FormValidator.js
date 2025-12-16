@@ -1,5 +1,3 @@
-// FormValidator.js
-
 class FormValidator {
   constructor(settings, formEl) {
     this._formEl = formEl;
@@ -8,11 +6,6 @@ class FormValidator {
     this._inactiveButtonClass = settings.inactiveButtonClass;
     this._inputErrorClass = settings.inputErrorClass;
     this._errorClass = settings.errorClass;
-  }
-
-  _resetValidation() {
-    this._form.reset();
-    this._toggleButtonState();
   }
 
   _showInputError(inputElement, errorMessage) {
@@ -73,10 +66,15 @@ class FormValidator {
     });
   }
 
-  enableValidation() {
-    this._formEl.addEventListener("submit", (evt) => {
-      evt.preventDefault();
+  
+  resetValidation() {
+    this._inputList.forEach((inputElement) => {
+      this._hideInputError(inputElement);
     });
+    this._toggleButtonState();
+  }
+
+  enableValidation() {
     this._setEventListeners();
   }
 }
