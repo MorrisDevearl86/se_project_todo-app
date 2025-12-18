@@ -66,13 +66,17 @@ class FormValidator {
     });
   }
 
-  
+  enableValidation() {
+    this._setEventListeners();
+  }
+
   resetValidation() {
-    this._formEl.reset();  // reset the form first
+    this._formEl.reset(); // reset the form first
     this._inputList.forEach((inputElement) => {
       this._hideInputError(inputElement);
     });
-    this._toggleButtonState();  // this will disable the button after resetting
-  }}
+    this._toggleButtonState(); // this will disable the button after resetting
+  }
+}
 
 export default FormValidator;
