@@ -5,22 +5,32 @@ import { initialTodos, validationConfig } from "../utils/constants.js";
 import Todo from "../components/Todo.js";
 import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
+import PopupWithForm from "../components/PopupWithForm.js";
 
 // DOM elements ↓↓
 
-const addTodoButton = document.querySelector(".button_action_add");
-const addTodoPopup = document.querySelector("#add-todo-popup");
+ 
+const  addTodoPopupEl = document.querySelector("#add-todo-popup");
 const addTodoForm = document.forms["add-todo-form"];
-const addTodoCloseBtn = addTodoPopup.querySelector(".popup__close");
+const addTodoCloseBtn =  addTodoPopupEl.querySelector(".popup__close");
 const todosList = document.querySelector(".todos__list");
 
-const section = new Section("items", "render", "containerSector");
+const  addTodoPopup = new  PopupWithForm({popupSelector: "#add-todo-popup"
+handleFormSubmit: () => {},});
+
+const section = new Section({
+  items: [],
+  render: () => {},
+  containerSector: "todos__list",
+});
+
+// call section instance methods if needed and render todos
 
 // Modal open/close functions ↓ ↓
 
-const openModal = (modal) => {
-  modal.classList.add("popup_visible");
-};
+// const openModal = (modal) => {
+//   modal.classList.add("popup_visible");
+// };
 
 const closeModal = (modal) => {
   modal.classList.remove("popup_visible");
@@ -39,16 +49,18 @@ const renderTodo = (item) => {
 };
 
 // Form validation ↓↓
+
 const newTodoValidator = new FormValidator(validationConfig, addTodoForm);
 newTodoValidator.enableValidation();
 
 // Event listeners ↓↓
+
 addTodoButton.addEventListener("click", () => {
-  openModal(addTodoPopup);
+  addTodoPopup.open();
 });
 
 addTodoCloseBtn.addEventListener("click", () => {
-  closeModal(addTodoPopup);
+  closeModal( addTodoPopupEl);
 });
 
 addTodoForm.addEventListener("submit", (evt) => {
@@ -66,9 +78,12 @@ addTodoForm.addEventListener("submit", (evt) => {
 
   newTodoValidator.resetValidation();
 
-  closeModal(addTodoPopup);
+  closeModal( addTodoPopupEl);
 });
 
 initialTodos.forEach((item) => {
   renderTodo(item);
 });
+
+// initialTodos,forEach((item) => {const todo = generateTodo(item); 
+// todosList.append(todo);});

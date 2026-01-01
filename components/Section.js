@@ -1,8 +1,14 @@
 class Section {
 Constructor({items, render, containerSector}) {
-console.log(items);
-console.log(render);
-console.log(containerSector);
-}}
 
-export default Section; 
+    this._items = items;
+    this._render = render;
+    this._container = document.querySelector(`.${containerSector}`);
+    renderItems() 
+        this._items.forEach((item => {
+            this._render(item);
+        }));
+  }
+}
+
+export default Section;
