@@ -20,15 +20,16 @@ class Popup {
   };
 
   setEventListeners() {
+
     // Close button listener
+    
     const closeButton = this._popupElement.querySelector(".popup__close");
     closeButton.addEventListener("click", () => {
       this.close();
     });
 
-    // Overlay click listener (clicking on shaded area around the form)
-
     this._popupElement.addEventListener("mousedown", (evt) => {
+      
       // Check if the click is directly on the popup overlay (not on its children)
       if (evt.target.classList.contains("popup")) {
         this.close();
