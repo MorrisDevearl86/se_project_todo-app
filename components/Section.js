@@ -1,5 +1,5 @@
 // ↓ components/Section.js ↓
-class Section {
+class Section {j
   constructor({ items = [], renderer, containerSelector }) {
     this._items = items;
     this._renderer = renderer;
