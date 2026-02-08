@@ -30,14 +30,14 @@ const todoSection = new Section(
       todoSection.addItem(todoElement);
     },
   },
-  ".todos__list"
+  ".todos__list",
 );
 
 todoSection.renderItems();
 
 // ↓↓ PopupWithForm (Add Todo) ↓↓
 
-const addTodoPopup = new PopupWithForm(addTodoPopupSelector, (formData) => {
+const handleAddTodoSubmit = (formData) => {
   const todoData = {
     name: formData.name,
     date: new Date(formData.date),
@@ -50,16 +50,18 @@ const addTodoPopup = new PopupWithForm(addTodoPopupSelector, (formData) => {
 
   newTodoValidator.resetValidation();
   addTodoPopup.close();
-});
+};
+
+const addTodoPopup = new PopupWithForm(
+  addTodoPopupSelector,
+  handleAddTodoSubmit,
+);
 
 addTodoPopup.setEventListeners();
 
 // ↓↓ Form Validation ↓↓
 
-const newTodoValidator = new FormValidator(
-  validationConfig,
-  addTodoForm
-);
+const newTodoValidator = new FormValidator(validationConfig, addTodoForm);
 
 newTodoValidator.enableValidation();
 
@@ -68,12 +70,3 @@ newTodoValidator.enableValidation();
 addTodoButton.addEventListener("click", () => {
   addTodoPopup.open();
 });
-
-initialTodos.forEach((item) => {
-  renderTodo(item);
-});
-
-function renderTodo(item) {
-  const todoElement = generateTodo(item);
-  todoSection.addItem(todoElement);
-};

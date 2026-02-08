@@ -1,22 +1,19 @@
-// ↓ components/Section.js ↓
+// components/Section.js
 
-class Section {
-  constructor({ items = [], renderer, containerSelector }) {
+export default class Section {
+  constructor({ items, renderer }, containerSelector) {
     this._items = items;
     this._renderer = renderer;
-    this._containerEl = document.querySelector(containerSelector);
+    this._container = document.querySelector(containerSelector);
   }
 
   renderItems() {
     this._items.forEach((item) => {
-      const element = this._renderer(item);
-      this.addItem(element);
+      this._renderer(item);
     });
   }
 
   addItem(element) {
-    this._containerEl.append(element);
+    this._container.prepend(element);
   }
 }
-
-export default Section;
