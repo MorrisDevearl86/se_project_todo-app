@@ -52,10 +52,10 @@ const handleAddTodoSubmit = (formData) => {
   addTodoPopup.close();
 };
 
-const addTodoPopup = new PopupWithForm(
-  addTodoPopupSelector,
-  handleAddTodoSubmit,
-);
+const addTodoPopup = new PopupWithForm({
+  popupSelector: addTodoPopupSelector,
+  handleFormSubmit: handleAddTodoSubmit,
+});
 
 addTodoPopup.setEventListeners();
 
