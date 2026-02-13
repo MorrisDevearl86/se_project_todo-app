@@ -1,39 +1,51 @@
 class TodoCounter {
-  
-  // todos should be the array of initial todos
-  // selector is the selector for the counter text element
-
+  // todos: array of todo objects
+  // selector: CSS selector for the counter element
   constructor(todos, selector) {
     this._element = document.querySelector(selector);
-    this._completed = completed = 0;
+    this.completed = 0;
+    this.total = 0;
+
+    if (!this._element) {
+      throw new Error(
+        `TodoCounter element not found with selector: ${selector}`,
+      );
+    }
+
+    // Count completed todos
+    this._completed = todos.filter((todo) => todo.completed).length;
+
+    // Total todos
     this._total = todos.length;
+
+    // Initialize text
     this._updateText();
   }
-  
-  // Call this when a checkbox is clicked, and when a completed
-  // to-do is deleted.
 
-    updateCompleted = (increment) => {
-
-    // if increment is true, add 1 to this._completed. Otherwise,  
-    // subtract 1. In either case, call the method to update 
+  // Call when a checkbox is clicked or a completed todo is deleted
+  updateCompleted = (increment) => {
+    if (increment) {
+      this._completed += 1;
+    } else {
+      this._completed -= 1;
+    }
 
     this._updateText();
     
   };
 
-  // Call this when a to-do is deleted, or when a to-do is  
-
+  // Call when a todo is added or deleted
   updateTotal = (increment) => {
-
-    // if increment is true, add 1 to this._total. Otherwise, 
-    // subtract 1. In either case, call the method to update the  
+    if (increment) {
+      this._total += 1;
+    } else {
+      this._total -= 1;
+    }
 
     this._updateText();
-      };
+  };
 
-  // Call the method to update the text content
-
+  // Update counter text
   _updateText() {
     this._element.textContent = `Showing ${this._completed} out of ${this._total} completed`;
   }
