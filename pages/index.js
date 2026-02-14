@@ -26,6 +26,8 @@ const todoSection = new Section(
   {
     items: initialTodos,
     renderer: (item) => {
+  return generateTodo(item);
+
       const todoElement = generateTodo(item);
       todoSection.addItem(todoElement);
     },

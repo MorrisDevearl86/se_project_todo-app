@@ -27,7 +27,9 @@ class Popup {
   }
 
   setEventListeners() {
+
     // Close button
+
     if (this._popupCloseBtn) {
       this._popupCloseBtn.addEventListener("click", () => {
         this.close();
@@ -35,6 +37,7 @@ class Popup {
     }
 
     // Close on overlay click
+    
     this._popupElement.addEventListener("mousedown", (evt) => {
       if (evt.target === this._popupElement) {
         this.close();
